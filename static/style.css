@@ -1,0 +1,349 @@
+/* =========================
+   GENERAL STYLING
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f9fc;
+    color: #263247;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 35px auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #263b64;
+}
+
+.logo-icon {
+    font-size: 27px;
+}
+
+.status {
+    background: #eaf7ee;
+    color: #24834a;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #28a745;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    color: #263b64;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    max-width: 700px;
+    margin: auto;
+    color: #68778d;
+    font-size: 16px;
+}
+
+
+/* =========================
+   SCANNER CARD
+========================= */
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e1e7ef;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 18px rgba(30, 50, 80, 0.05);
+}
+
+.card-heading {
+    margin-bottom: 25px;
+}
+
+.card-heading h2 {
+    font-size: 23px;
+    color: #263b64;
+    margin-bottom: 5px;
+}
+
+.card-heading p {
+    font-size: 14px;
+    color: #718096;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 17px 0 8px;
+    color: #344258;
+}
+
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #d5deea;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+    background: #ffffff;
+    color: #263247;
+    outline: none;
+    transition: 0.2s;
+}
+
+select {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+select:focus,
+textarea:focus {
+    border-color: #668bc9;
+    box-shadow: 0 0 0 3px rgba(102, 139, 201, 0.12);
+}
+
+textarea::placeholder {
+    color: #a0aaba;
+}
+
+
+/* =========================
+   SCAN BUTTON
+========================= */
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #426cae;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #345991;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESULT BOX
+========================= */
+
+.result-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.result-icon {
+    font-size: 30px;
+}
+
+.result-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.result-meta {
+    font-size: 14px;
+}
+
+.separator {
+    margin: 0 7px;
+}
+
+
+/* Safe result */
+
+.result-safe {
+    background: #edf8f0;
+    border-color: #b8e2c5;
+    color: #247443;
+}
+
+
+/* Review result */
+
+.result-review {
+    background: #fff8e8;
+    border-color: #f0d697;
+    color: #8b6717;
+}
+
+
+/* Spam / phishing result */
+
+.result-spam,
+.result-danger {
+    background: #fff0f0;
+    border-color: #edc1c1;
+    color: #b83333;
+}
+
+
+/* =========================
+   FEATURE SECTION
+========================= */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.feature-card {
+    background: #ffffff;
+    border: 1px solid #e1e7ef;
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(30, 50, 80, 0.06);
+}
+
+.feature-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 {
+    font-size: 17px;
+    color: #263b64;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    color: #718096;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    color: #77859a;
+    font-size: 13px;
+}
+
+.model-info {
+    margin-top: 5px;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .header {
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .result-box {
+        align-items: flex-start;
+    }
+
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Email & SMS Fraud Detector</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                <span>Fraud Detector</span>
+            </div>
+
+            <span class="status">
+                <span class="status-dot"></span>
+                ML Model Active
+            </span>
+        </header>
+
+
+        <!-- Main Heading -->
+        <section class="hero">
+
+            <h1>Email & SMS Fraud Detector</h1>
+
+            <p class="subtitle">
+                Detect suspicious messages using Machine Learning.
+                Analyze SMS and emails to identify potential spam
+                and phishing threats.
+            </p>
+
+        </section>
+
+
+        <!-- Scanner Card -->
+        <main class="card">
+
+            <div class="card-heading">
+
+                <h2>Message Analyzer</h2>
+
+                <p>
+                    Enter a message below to check whether it is safe
+                    or potentially fraudulent.
+                </p>
+
+            </div>
+
+
+            <form method="POST" action="/">
+
+                <!-- Message Type -->
+                <label for="channelSelect">Select message type</label>
+
+                <select id="channelSelect" name="channel">
+
+                    <option value="sms"
+                        {% if channel == "sms" %}selected{% endif %}>
+                        SMS Message
+                    </option>
+
+                    <option value="email"
+                        {% if channel == "email" %}selected{% endif %}>
+                        Email Message
+                    </option>
+
+                </select>
+
+
+                <!-- Message Input -->
+                <label for="msgText">Enter your message</label>
+
+                <textarea
+                    id="msgText"
+                    name="text"
+                    rows="6"
+                    placeholder="Paste your SMS or email content here..."
+                    required>{{ text }}</textarea>
+
+
+                <!-- Scan Button -->
+                <button type="submit">
+                    🔍 Scan Message
+                </button>
+
+            </form>
+
+
+            <!-- Prediction Result -->
+            {% if result %}
+
+                <div class="result-box result-{{ result.tier }}">
+
+                    <div class="result-icon">
+
+                        {% if result.tier == "safe" %}
+                            🛡️
+                        {% elif result.tier == "review" %}
+                            ⚠️
+                        {% else %}
+                            🚨
+                        {% endif %}
+
+                    </div>
+
+                    <div class="result-content">
+
+                        <h3 class="result-title">
+
+                            {% if result.tier == "safe" %}
+                                Message Appears Safe
+
+                            {% elif result.tier == "review" %}
+                                Suspicious Message — Review Required
+
+                            {% else %}
+                                Spam / Phishing Detected
+
+                            {% endif %}
+
+                        </h3>
+
+                        <p class="result-meta">
+
+                            Spam Probability:
+                            <strong>
+                                {{ (result.spam_probability * 100) | round(1) }}%
+                            </strong>
+
+                            <span class="separator">|</span>
+
+                            Message Type:
+                            <strong>{{ result.channel | upper }}</strong>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        </main>
+
+
+        <!-- Features Section -->
+        <section class="features">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🤖</div>
+
+                <h3>Machine Learning</h3>
+
+                <p>
+                    Uses a trained Logistic Regression model
+                    to classify messages.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">📩</div>
+
+                <h3>SMS & Email</h3>
+
+                <p>
+                    Supports analysis of both SMS messages
+                    and email content.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🔒</div>
+
+                <h3>Spam Detection</h3>
+
+                <p>
+                    Identifies messages that may contain
+                    spam or phishing content.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <p>
+                Email & SMS Fraud Detector
+                <span class="separator">|</span>
+                Machine Learning Mini Project
+            </p>
+
+            <p class="model-info">
+                Logistic Regression + TF-IDF
+            </p>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
